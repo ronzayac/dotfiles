@@ -22,6 +22,7 @@
   home.username = "ron";
   home.homeDirectory = "/home/ron";
 
+  # Git comment - to test git push and ensure remote syncing is working
   programs.git = {
     enable = true;
     userName = "ronzayac";
