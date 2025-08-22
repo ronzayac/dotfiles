@@ -1,0 +1,101 @@
+{ config, pkgs, ...}:
+{
+#  let
+#    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {};
+#  in
+#  {
+#    imports = lib.attrValues nur.repos.rycee.firefox-addons.rawModules;
+#  };
+
+  home = {
+    #username = "${username}";
+    username = "ron";
+    #homeDirectory = "/home/${username}";
+    homeDirectory = "/home/ron";
+    stateVersion = "25.05";
+  };
+
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      btw = "echo I use nixos, by the way";
+      nrs = "sudo nixos-rebuild switch";
+      vi = "nvim";
+    };
+
+#    initExtra = ''
+#      export PS1='\u@\h:\w\$'
+#    '';
+  };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      windows.opacity = 0.9;
+      #font.normal = {
+      #  family = "JetBrains Mono";
+      #  style = "Regular";
+      #};
+      font.size = 14;
+    };
+
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "ronzayac";
+    userEmail = "ron.zayac@technorth.ca";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
+  };
+
+  programs.firefox = {
+    enable = true;
+#     profiles = {
+#       default = {
+#         #Default Profile Settings
+#         extensions = with pkgs; [
+#           nur.repos.rycee.firefox-addons.keeper-password-manager
+#           nur.repos.rycee.firefox-addons.ublock-origin
+#         ];
+#       };
+#       TNS = {
+#         #Work Profile Settings
+#         extensions = with pkgs; [
+#           nur.repos.rycee.firefox-addons.keeper-password-manager
+#           nur.repos.rycee.firefox-addons.ublock-origin
+#           nur.repos.rycee.firefox-addons.facebook-container
+#         ];
+#       };
+#       Zayac = {
+#         #zayac.org Profile Settings
+#         extensions = with pkgs; [
+#           nur.repos.rycee.firefox-addons.keeper-password-manager
+#           nur.repos.rycee.firefox-addons.ublock-origin
+#           nur.repos.rycee.firefox-addons.facebook-tracking-removal
+#         ];
+#       };
+#  
+#       Gmail = {
+#         #gmail.com Profile Settings
+#         extensions = with pkgs; [
+#           nur.repos.rycee.firefox-addons.keeper-password-manager
+#           nur.repos.rycee.firefox-addons.privacy-badger
+#           nur.repos.rycee.firefox-addons.facebook-tracking-removal
+#         ];
+#       };
+#     };
+  };
+
+  home.packages = with pkgs; [
+    gimp
+    librewolf
+    morgen
+    brave
+    #steam
+    #steam-run
+  ];
+}
+
+
