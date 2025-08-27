@@ -1,0 +1,8 @@
+# Update environment assocaited with home.nix
+home-manager switch --flake .
+
+# Manage Git Environment
+cd ~/.dotfiles
+git add <new file name> or git add *
+git commit -m "my message re the changes I made or file I created"
+git push github main
